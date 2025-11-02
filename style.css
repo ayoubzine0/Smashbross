@@ -179,4 +179,63 @@ html {
   zoom: 0.8; /* makes everything appear like 80% browser zoom */
 }
 
+/* --- Checkout Popup --- */
+.checkout-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.checkout-popup.hidden {
+  display: none;
+}
+
+.checkout-content {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: popupFade 0.3s ease;
+}
+
+.checkout-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.checkout-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.checkout-content .btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+}
+
+@keyframes popupFade {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 
