@@ -193,41 +193,28 @@ orderForm.addEventListener("submit", (e) => {
   const phone = document.getElementById("phone").value.trim();
   const address = document.getElementById("address").value.trim();
 
-  // ✅ Extract clean item names from cart
+  // Build order summary
   let items = [];
   document.querySelectorAll("#cart li").forEach((li) => {
-    // remove the word "Remove" or anything after it
-    const cleanText = li.textContent.replace(/Remove/gi, "").trim();
-    if (cleanText) items.push(`🍔 ${cleanText}`);
+    items.push(li.textContent);
   });
 
-  const total = totalText.textContent.replace("Total:", "💰 Total:");
-  
-  // ✅ Build clean WhatsApp message
+  const total = totalText.textContent;
   const orderDetails = `📦 *New Order from Smash Bro's Restaurant* 📦
+👤 Name: ${name}
+📞 Phone: ${phone}
+🏠 Address: ${address}
 
-👤 *Name:* ${name}
-📞 *Phone:* ${phone}
-🏠 *Address:* ${address}
-
-🛒 *Order:*
+🛒 Order:
 ${items.join("\n")}
 
-${total}
-  
-✅ Please confirm the order.`;
+💰 ${total}`;
 
   const encodedMsg = encodeURIComponent(orderDetails);
-  const whatsappNumber = "212724680135"; // 🔧 Replace with your WhatsApp number
+  const whatsappNumber = "212600000000"; // 🔧 REPLACE with your WhatsApp number
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
 
-  // ✅ Open WhatsApp
   window.open(whatsappURL, "_blank");
-
-  // Close popup & reset form
-  checkoutPopup.classList.add("hidden");
-  orderForm.reset();
-});
 
   // Close popup
   checkoutPopup.classList.add("hidden");
