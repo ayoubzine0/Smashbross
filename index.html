@@ -32,20 +32,19 @@
   <p id="total">Total: 0 DH</p>
   <button id="checkoutBtn" class="btn red">Proceed to Checkout</button>
 
-  <!-- Checkout -->
-  <div id="checkout" class="checkout hidden">
+  <!-- Checkout Popup -->
+<div id="checkoutPopup" class="checkout-popup hidden">
+  <div class="checkout-content">
+    <span id="closeCheckout" class="close-btn">&times;</span>
     <h2>Checkout</h2>
     <form id="orderForm">
-      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="name" placeholder="Full Name" required>
       <input type="tel" id="phone" placeholder="Phone Number" required>
-      <select id="method" required>
-        <option value="pickup">Pickup</option>
-        <option value="delivery">Delivery</option>
-      </select>
-      <input type="text" id="address" class="hidden" placeholder="Delivery Address">
-      <button type="submit" class="btn green">Confirm Order</button>
+      <input type="text" id="address" placeholder="Address" required>
+      <button type="submit" class="btn green">✅ Confirm Order</button>
     </form>
   </div>
+</div>
 
   <!-- Modal -->
   <div id="modal">
@@ -64,3 +63,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
