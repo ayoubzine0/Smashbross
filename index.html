@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smash Bro's Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <img src="https://i.imgur.com/pR0TdNc.png" alt="Main Logo">
+    </div>
+    <div class="title logo-with-effects">
+      <img src="https://i.imgur.com/n6dGNk2.png" alt="Smash Bro's Logo" class="title-logo">
+    </div>
+  </div>
+
+  <!-- Clouds -->
+  <div class="mario-cloud"></div>
+  <div class="mario-cloud small"></div>
+
+  <!-- Menu -->
+  <div id="menu" class="menu"></div>
+
+  <!-- Cart -->
+  <h2>🛒 Your Order</h2>
+  <ul id="cart" class="cart"></ul>
+  <p id="total">Total: 0 DH</p>
+  <button id="checkoutBtn" class="btn red">Proceed to Checkout</button>
+
+  <!-- Checkout -->
+  <div id="checkout" class="checkout hidden">
+    <h2>Checkout</h2>
+    <form id="orderForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <select id="method" required>
+        <option value="pickup">Pickup</option>
+        <option value="delivery">Delivery</option>
+      </select>
+      <input type="text" id="address" class="hidden" placeholder="Delivery Address">
+      <button type="submit" class="btn green">Confirm Order</button>
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modalContent">
+      <span id="closeModal">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Coin Sound -->
+  <audio id="coinSound" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2024/10/31/audio_9f88ea50ad.mp3?filename=coin-257878.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
