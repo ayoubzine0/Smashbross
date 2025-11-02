@@ -193,35 +193,42 @@ orderForm.addEventListener("submit", (e) => {
   const phone = document.getElementById("phone").value.trim();
   const address = document.getElementById("address").value.trim();
 
- // Extract clean cart items
-let items = [];
-document.querySelectorAll("#cart li").forEach((li) => {
-  let text = li.textContent.replace(/Remove/gi, "").trim();
-  if (text) items.push(`- ${text}`); // simple dash instead of 🍔
-});
+  // Clean cart items
+  let items = [];
+  document.querySelectorAll("#cart li").forEach((li) => {
+    let text = li.textContent.replace(/Remove/gi, "").trim();
+    if (text) items.push(`- ${text}`); // simple dash, no emojis
+  });
 
-  const total = totalText.textContent.replace("Total:", "💰 Total:");
+  // Clean total text
+  const total = totalText.textContent.replace("Total:", "Total:");
 
-  // Build WhatsApp message
-  const orderDetails = `📦 *New Order from Smash Bro's Restaurant* 📦\n\n` +
-                       `👤 Name: ${name}\n` +
-                       `📞 Phone: ${phone}\n` +
-                       `🏠 Address: ${address}\n\n` +
-                       `🛒 Order:\n${items.join("\n")}\n\n` +
-                       `${total}`;
+  // Build WhatsApp message using only safe symbols
+  const orderDetails =
+`*New Order from Smash Bro's Restaurant*
 
-  // Encode for WhatsApp
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+
+Order:
+${items.join("\n")}
+
+${total}`;
+
+  // Encode and open WhatsApp
   const encodedMsg = encodeURIComponent(orderDetails);
   const whatsappNumber = "212600000000"; // 🔧 Replace with your WhatsApp number
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
 
-  // Open WhatsApp with order
   window.open(whatsappURL, "_blank");
 
-  // Close popup and reset form
+  // Close popup & reset form
   checkoutPopup.classList.add("hidden");
   orderForm.reset();
 });
+
+
 
 
 
