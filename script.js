@@ -193,13 +193,12 @@ orderForm.addEventListener("submit", (e) => {
   const phone = document.getElementById("phone").value.trim();
   const address = document.getElementById("address").value.trim();
 
-  // Extract clean cart items
-  let items = [];
-  document.querySelectorAll("#cart li").forEach((li) => {
-    // Remove any "Remove" or unwanted text
-    let text = li.textContent.replace(/Remove/gi, "").trim();
-    if (text) items.push(`🍔 ${text}`); // optional emoji
-  });
+ // Extract clean cart items
+let items = [];
+document.querySelectorAll("#cart li").forEach((li) => {
+  let text = li.textContent.replace(/Remove/gi, "").trim();
+  if (text) items.push(`- ${text}`); // simple dash instead of 🍔
+});
 
   const total = totalText.textContent.replace("Total:", "💰 Total:");
 
@@ -223,6 +222,7 @@ orderForm.addEventListener("submit", (e) => {
   checkoutPopup.classList.add("hidden");
   orderForm.reset();
 });
+
 
 
 
