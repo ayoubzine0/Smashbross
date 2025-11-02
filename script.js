@@ -219,7 +219,7 @@ ${total}
 
   const encodedMsg = encodeURIComponent(orderDetails);
   const whatsappNumber = "212724680135"; // 🔧 Replace with your WhatsApp number
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
+  const whatsappURL = `https://wa.me/${212724680135}?text=${encodedMsg}`;
 
   // ✅ Open WhatsApp
   window.open(whatsappURL, "_blank");
@@ -233,5 +233,6 @@ ${total}
   checkoutPopup.classList.add("hidden");
   orderForm.reset();
 });
+
 
 
