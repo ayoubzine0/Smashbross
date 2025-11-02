@@ -173,3 +173,10 @@ h2 { margin-top: 26px; font-size: 1.4rem; }
   .header { gap: 12px; padding: 10px; }
   .qtyInput { width: 60px; }
 }
+
+/* --- Zoom Adjustment --- */
+html {
+  zoom: 0.8; /* makes everything appear like 80% browser zoom */
+}
+
+
